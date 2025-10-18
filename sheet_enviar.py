@@ -16,16 +16,15 @@ from google.oauth2.service_account import Credentials
 
 @st.cache_resource
 def connect_to_gsheet():
-    """Conecta ao Google Sheets usando as credenciais do secrets.toml"""
-    try:
-        scopes = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
-        creds = Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes=scopes)
-        client = gspread.authorize(creds)
-        return client
-    except Exception as e:
-        st.error("ERRO: Não foi possível conectar ao Google Sheets. Verifique o conteúdo do seu arquivo .streamlit/secrets.toml.")
-        st.stop()
-
+    """Conecta ao Google Sheets usando as credenciais do secrets.toml no formato JSON string."""
+    # Lê o JSON que está como uma string gigante e o converte para um dicionário
+    creds_json = st.secrets["gspread"]["service_account_info"]
+    creds = Credentials.from_service_account_info(
+        info=eval(creds_json), # eval() converte a string de volta para um dicionário
+        scopes=["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
+    )
+    client = gspread.authorize(creds)
+    return client
 # VERSÃO FINAL E CORRIGIDA
 @st.cache_data
 def load_data_from_sheet(_client, sheet_name, month_name): # <-- MUDANÇA 1: Adicionado o _
