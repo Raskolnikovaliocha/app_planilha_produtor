@@ -1,16 +1,21 @@
-# Arquivo de credenciais do Google - NUNCA ENVIAR!
-google_credentials.json
-
-# Pasta do ambiente virtual
+# Ambiente Virtual do Python
 .venv/
-*.venv/
+venv/
 
-# Arquivos temporários do Python
+# Arquivos de segredos do Streamlit
+# NUNCA envie este arquivo para o GitHub!
+.streamlit/secrets.toml
+
+# Pastas de cache e arquivos compilados do Python
 __pycache__/
 *.pyc
 
-# Arquivos de IDEs (ex: VS Code, PyCharm)
-.vscode/
-.idea/
+# Arquivos de credenciais JSON (se existirem)
+*.json
 
-.devcontainer/  # <-- ADICIONE ESTA LINHA
+# Checkpoints do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Arquivos de configuração de IDEs (opcional, mas recomendado)
+.idea/
+.vscode/
