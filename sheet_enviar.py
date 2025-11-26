@@ -96,6 +96,10 @@ for k, aba in enumerate(abas):
         else:
             df_inicial = dados_salvos.reindex(columns=nomes_colunas_originais)
 
+        # 🔧 Transformar colunas em texto ANTES do data_editor
+        for col in ["Custo (R$)", "Receita (R$)"]:
+            df_inicial[col] = df_inicial[col].astype(str)
+
         #tabela_editada = st.data_editor(df_inicial, num_rows="dynamic", use_container_width=True, key=f"edit_{k}")
         # 🔧 Correção: converte as colunas para string pra permitir expressões como "10+5"
         tabela_editada = st.data_editor(
