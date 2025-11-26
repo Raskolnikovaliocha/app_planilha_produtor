@@ -97,7 +97,9 @@ for k, aba in enumerate(abas):
             df_inicial = dados_salvos.reindex(columns=nomes_colunas_originais)
 
         tabela_editada = st.data_editor(df_inicial, num_rows="dynamic", use_container_width=True, key=f"edit_{k}")
-
+        # 🔧 Correção: converte as colunas para string pra permitir expressões como "10+5"
+        tabela_editada["Custo (R$)"] = tabela_editada["Custo (R$)"].astype(str)
+        tabela_editada["Receita (R$)"] = tabela_editada["Receita (R$)"].astype(str)
         st.divider()
         if st.button(f"💾 Salvar Dados de {mes_atual} na Planilha", key=f"save_{k}"):
             with st.spinner("Salvando..."):
