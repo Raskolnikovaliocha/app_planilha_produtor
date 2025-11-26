@@ -96,8 +96,21 @@ for k, aba in enumerate(abas):
         else:
             df_inicial = dados_salvos.reindex(columns=nomes_colunas_originais)
 
-        tabela_editada = st.data_editor(df_inicial, num_rows="dynamic", use_container_width=True, key=f"edit_{k}")
+        #tabela_editada = st.data_editor(df_inicial, num_rows="dynamic", use_container_width=True, key=f"edit_{k}")
         # 🔧 Correção: converte as colunas para string pra permitir expressões como "10+5"
+        tabela_editada = st.data_editor(
+            df_inicial,
+            num_rows="dynamic",
+            use_container_width=True,
+            key=f"edit_{k}",
+            column_config={
+                "Custo (R$)": st.column_config.TextColumn("Custo (R$)"),
+                "Receita (R$)": st.column_config.TextColumn("Receita (R$)")
+            }
+        )
+
+        
+        
         tabela_editada["Custo (R$)"] = tabela_editada["Custo (R$)"].astype(str)
         tabela_editada["Receita (R$)"] = tabela_editada["Receita (R$)"].astype(str)
         st.divider()
