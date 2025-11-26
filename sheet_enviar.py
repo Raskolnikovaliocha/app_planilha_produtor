@@ -134,14 +134,6 @@ for k, aba in enumerate(abas):
 
         # A lógica de cálculo agora está aqui, de forma segura e limpa
         
-        '''
-        def calcular_expressao(valor):
-            if valor is None or str(valor).strip() == "": return 0.0
-            try:
-                return float(eval(str(valor)))
-            except:
-                return 0.0
-        '''
 
         def calcular_expressao(valor):
             if valor is None:
