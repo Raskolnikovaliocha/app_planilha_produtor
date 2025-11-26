@@ -222,10 +222,10 @@ else:
     st.warning(f"⚠️ Sua receita anual não cobriu os custos. Prejuízo: R$ {Lucro_anual:,.2f}")
 
 
-st.subheader("📈 Receita estimada por hectare")
+st.subheader("📈 Receita estimada")
 
 qtd_sacas = st.number_input(
-    "📦 Quantidade de sacas produzidas por hectare:",
+    "📦 Quantidade de sacas produzidas:",
     min_value=0.0,
     step=0.1,
     format="%.2f"
