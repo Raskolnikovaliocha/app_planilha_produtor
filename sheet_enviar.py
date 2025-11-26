@@ -116,10 +116,27 @@ for k, aba in enumerate(abas):
         # <<< CORREÇÃO FATAL: O BLOCO DE CÁLCULO ANTIGO FOI TOTALMENTE REMOVIDO DAQUI >>>
 
         # A lógica de cálculo agora está aqui, de forma segura e limpa
+        
+        '''
         def calcular_expressao(valor):
             if valor is None or str(valor).strip() == "": return 0.0
             try:
                 return float(eval(str(valor)))
+            except:
+                return 0.0
+        '''
+
+        def calcular_expressao(valor):
+            if valor is None:
+                return 0.0
+
+            valor = str(valor).strip()
+        
+            if valor == "":
+                return 0.0
+
+            try:
+                return float(eval(valor))
             except:
                 return 0.0
 
