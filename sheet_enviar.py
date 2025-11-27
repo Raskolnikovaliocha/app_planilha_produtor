@@ -65,10 +65,10 @@ def save_data_to_sheet(client, sheet_name, month_name, dataframe):
 st.set_page_config(page_title="Custos Mensais", layout="wide")
 st.title("🌾 Controle de Custos Mensais cafeeiro")
 
-st.write('* (usado para multiplicação)')
-st.write('\ (usado para divisão')
-st.write('+ (usado para soma)')
-st.write('- (usado para subtração)')
+st.write('✱ (usado para multiplicação)')
+st.write('/ (usado para divisão')
+st.write('➕ (usado para soma)')
+st.write('➖ (usado para subtração)')
 
 
 NOME_DA_PLANILHA = "planilha_agricultor"
