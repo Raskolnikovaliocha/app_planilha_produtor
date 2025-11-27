@@ -66,7 +66,7 @@ st.set_page_config(page_title="Custos Mensais", layout="wide")
 st.title("🌾 Controle de Custos Mensais cafeeiro")
 
 st.write('✱ (usado para multiplicação)')
-st.write('/ (usado para divisão')
+st.write('/ (usado para divisão)')
 st.write('➕ (usado para soma)')
 st.write('➖ (usado para subtração)')
 
