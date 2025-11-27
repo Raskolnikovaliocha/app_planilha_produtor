@@ -194,22 +194,7 @@ for k, aba in enumerate(abas):
         media_receita = tabela_calculada["Receita (R$)"].mean()
         lucro_medio = media_receita - media_custos
 
-        st.header('Valores médios')
-        col1, col2, col3 = st.columns(3)
-        col1.metric("Receita média ", f"R$:{media_receita:.2f}")
-        col2.metric("Custo médio: ", f"R$:{media_custos:.2f}")
-        col3.metric("Lucro médio: ", f"R$:{lucro_medio:.2f}")
-
-
-        if lucro_medio == 0:
-            st.success(f' 💹 Sua receita média  cobriu  os custos médios e não sobrou nada: R$:{lucro_medio:.2f} ')
-
-        elif Diferenca > 0:
-            st.success(f'💹Sua receita  média cobriu os custos e médios  sobrou dinheiro: R$:{lucro_medio:.2f} ')
-
-        else:
-            st.warning(f'Sua receita não cobriu os custos médios  e você ficou no vermelho: R$:{lucro_medio:.2f} ')
-
+       
         st.header('Gráfico de barras para acompanhamento de custos ao longo do mês')
 
 
