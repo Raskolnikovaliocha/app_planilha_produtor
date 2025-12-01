@@ -72,7 +72,7 @@ st.write('➖ (usado para subtração)')
 st.subheader('Exemplos')
 st.warning('Escrita incorreta: 3,500.50')
 st.success('Escrita correta: 3500.50')
-st.capilot('Não colocar vírgula para separar milhar e colocar ponto para separar decimal')
+st.caption('Não colocar vírgula para separar milhar e colocar ponto para separar decimal')
 
 
 NOME_DA_PLANILHA = "planilha_agricultor"
