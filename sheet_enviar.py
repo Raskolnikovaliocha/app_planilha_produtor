@@ -209,7 +209,7 @@ for k, aba in enumerate(abas):
 
         st.header('Gráfico de barras para acompanhamento de receitas ao longo do mês')
 
-        fig = px.bar(tabela_calculada, x='Atividade Comercialização', y='Receita (R$)', color='Descrição')
+        fig = px.bar(tabela_calculada, x='Atividade Comercialização', y='Receita (R$)')
         st.plotly_chart(fig, use_container_width=True,key = f'casa_{k}')
 
         st.header('Gráfico de barras para acompanhamento de lucro ao longo do mês')
