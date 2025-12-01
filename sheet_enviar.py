@@ -66,9 +66,13 @@ st.set_page_config(page_title="Custos Mensais", layout="wide")
 st.title("🌾 Controle de Custos Mensais cafeeiro")
 
 st.write('✱ (usado para multiplicação)')
-st.write('/ (usado para divisão)')
+st.write('／ (usado para divisão)')
 st.write('➕ (usado para soma)')
 st.write('➖ (usado para subtração)')
+st.subheader('Exemplos')
+st.warning('Escrita incorreta: 3,500.50')
+st.success('Escrita correta: 3500.50')
+st.capilot('Não colocar vírgula para separar milhar e colocar ponto para separar decimal')
 
 
 NOME_DA_PLANILHA = "planilha_agricultor"
@@ -169,8 +173,8 @@ for k, aba in enumerate(abas):
         st.caption("🔍 Tabela com cálculos e destaques:")
         st.dataframe(
             tabela_calculada.style
-            .highlight_max(color='#5A5A5A', subset=["Custo (R$)", "Receita (R$)", "Lucro (R$)"])
-            .highlight_min(color='#b2b2b2', subset=["Custo (R$)", "Receita (R$)", "Lucro (R$)"])
+            .highlight_max(color='#5A5A5A', subset=["Custo (R$)" ])
+            .highlight_min(color='#b2b2b2', subset=["Custo (R$)"])
             .format({'Custo (R$)': 'R$ {:,.2f}', 'Receita (R$)': 'R$ {:,.2f}', 'Lucro (R$)': 'R$ {:,.2f}'})
         )
 
@@ -219,7 +223,7 @@ for k, aba in enumerate(abas):
 
         st.header('Gráfico de barras para acompanhamento de lucro ao longo do mês')
 
-        fig = px.bar(tabela_calculada, x='Atividade Comercialização', y='Lucro (R$)', color='Descrição')
+        fig = px.bar(tabela_calculada, x='Atividade Comercialização', y='Lucro (R$)')
         st.plotly_chart(fig, use_container_width=True, key=f'casa2_{k}')
 
 
