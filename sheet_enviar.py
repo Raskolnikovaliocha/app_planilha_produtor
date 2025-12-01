@@ -223,7 +223,7 @@ for k, aba in enumerate(abas):
 
         st.header('Gráfico de barras para acompanhamento de lucro ao longo do mês')
 
-        fig = px.bar(tabela_calculada, x='Atividade Comercialização', y='Lucro (R$)')
+        fig = px.bar(tabela_calculada, x='Lucro (R$)', y='Lucro (R$)')
         st.plotly_chart(fig, use_container_width=True, key=f'casa2_{k}')
 
 
