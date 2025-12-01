@@ -159,7 +159,12 @@ for k, aba in enumerate(abas):
         tabela_calculada = tabela_editada.copy()
         tabela_calculada["Custo (R$)"] = tabela_calculada["Custo (R$)"].apply(calcular_expressao)
         tabela_calculada["Receita (R$)"] = tabela_calculada["Receita (R$)"].apply(calcular_expressao)
-        tabela_calculada["Lucro (R$)"] = tabela_calculada["Receita (R$)"] - tabela_calculada["Custo (R$)"]
+        #Vou calcular a receita total - custo total
+        custo_total = tabela_calculada["Custo (R$)"].sum()
+        receita_total = tabela_calculada["Receita (R$)"].sum()
+        lucro = receita_total - custo_total
+        tabela_calculada["Lucro (R$)"] = lucro
+        #tabela_calculada["Lucro (R$)"] = tabela_calculada["Receita (R$)"] - tabela_calculada["Custo (R$)"]
 
         st.caption("🔍 Tabela com cálculos e destaques:")
         st.dataframe(
